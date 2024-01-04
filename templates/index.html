@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madlibs</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+</head>
+<body>
+    <div class="madlibs-container">
+        <div class="main-form">
+            <h1 id="madlibs-title">Madlibs</h1>
+            <form class="prompt-form" action="/story">
+                {% for prompt in prompts: %}
+                    <b>
+                        <em>
+                            <p class="prompt-line">{{ prompt.title() }}:
+                                <input type="text" id="{{ prompt }}" name="{{ prompt }}" 
+                                placeholder="{{ prompt }}" size="65" required><br>
+                            </p>
+                        </em>
+                    </b>
+                {% endfor %}
+                <input type="submit" value="Submit" id="form-submit">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
