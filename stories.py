@@ -18,11 +18,11 @@ class Story:
         'I love to eat a good mango.'
     """
 
-    def __init__(self, words, text):
+    def __init__(self, title, prompts, template):
         """Create story with words and template text."""
-
-        self.prompts = words
-        self.template = text
+        self.title = title
+        self.prompts = prompts
+        self.template = template
 
     def generate(self, answers):
         """Substitute answers into text."""
@@ -38,8 +38,35 @@ class Story:
 # Here's a story to get you started
 
 
-story = Story(
-    ["place", "noun", "verb", "adjective", "plural noun"],
+normal_story = Story(
+    "Normal story",
+    ["place", "noun", "verb", "adjective", "plural_noun"],
     """Once upon a time in a long-ago {place}, there lived a
-       large {adjective} {noun}. It loved to {verb} {plural noun}."""
+       large {adjective} {noun}. It loved to {verb} {plural_noun}."""
 )
+
+
+supergirl_story = Story(
+    "Supergirl story",
+    ["place", "noun", "verb", "plural_noun"],
+    """{noun} {verb} {place} from {plural_noun}."""
+)
+
+
+
+superhero_story = Story(
+    "Superhero story",
+    ["noun", "first_adjective", "second_adjective"],
+    """{noun} is {first_adjective} and {second_adjective}."""
+)
+
+
+
+christmas_story = Story(
+    "Christmas story",
+    ["adverb", "noun", "verb", "plural_noun", "subject"],
+    """{adverb} of {noun}, we will {verb} {plural_noun} to {subject}."""
+)
+
+story_templates = {s.title: s for s in [normal_story, supergirl_story,
+                    superhero_story, christmas_story]}
